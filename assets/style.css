@@ -1,51 +1,97 @@
 body {
+    background-color:white;
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
 }
 
-/* Nav Bar Customization */
-
-nav {
-    background-color: #4ab6e0;
-    text-align: center;
-    
+body, h1, p, ul {
+    margin: 0;
+    padding: 0;
 }
-
-nav h1 {
-    margin-top: auto;
-    padding-left: 30px;
-}
-
-nav ul li {
-    background-color: #e86841;
-    border-radius: 10px;
-    color: white;
-    display: inline-block; 
-    margin-bottom: 40px;
-    margin-left: 40px;
-    margin-right: 20px;
-    padding: 10px;
-
-}
-
-a {
-    color: white;
-}
-
 
 #body-img {
-    height: auto;
+    height: 250px;
     width: 100%;
+    object-fit: cover;
+}
+
+
+p { 
+    text-align: center;
+    border-top: 4px solid rgb(64, 64, 203); 
+    border-bottom: 4px solid rgb(64, 64, 203); 
+    box-decoration-break: clone; 
+    width: 60%;
+    margin-left: 22%;
+    font-size: large;
+  } 
+
+/* Nav Bar Customization */
+
+.navbar {
+    background-color: rgb(64, 64, 203);
+    height: 120px;
+    text-align: center;
+}
+
+.navbar h1 {
+    text-align: center;
+    color: antiquewhite;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 36px;
+}
+
+.navbar li {
+    width: 100%;
+    list-style: none;
+    justify-content: center;
+    display: inline;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar li a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: antiquewhite;
+    color: rgb(64, 64, 203);
+    
 }
 
 /* Body Customization */
 
-p {
-    font-size: large;
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
 }
 
 /* Footer Customization */
 
+footer {
+    background-color: rgb(64, 64, 203);
+    height: 200px;
+    margin-top: 100%;
+    text-align: center;
+}
+
+footer li {
+    width: 100%;
+    list-style: none;
+    justify-content: center;
+    display: inline;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer li a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
