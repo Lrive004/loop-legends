@@ -1,5 +1,8 @@
 body {
-    background-color: rgb(248, 244, 238);
+    background-color:white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body, h1, p, ul {
@@ -7,9 +10,29 @@ body, h1, p, ul {
     padding: 0;
 }
 
+#body-img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+p { 
+    text-align: center;
+    border-top: 4px solid rgb(64, 64, 203); 
+    border-bottom: 4px solid rgb(64, 64, 203); 
+    box-decoration-break: clone; 
+    width: 60%;
+    margin-left: 22%;
+    font-size: large;
+  } 
+
+/* Nav Bar Customization */
+
 .navbar {
     background-color: rgb(64, 64, 203);
     height: 120px;
+    text-align: center;
 }
 
 .navbar h1 {
@@ -40,4 +63,35 @@ body, h1, p, ul {
     background-color: antiquewhite;
     color: rgb(64, 64, 203);
     
+}
+
+/* Body Customization */
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+/* Footer Customization */
+
+footer {
+    background-color: rgb(64, 64, 203);
+    height: 200px;
+    margin-top: 100%;
+    text-align: center;
+}
+
+footer li {
+    width: 100%;
+    list-style: none;
+    justify-content: center;
+    display: inline;
+    margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer li a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
 }
