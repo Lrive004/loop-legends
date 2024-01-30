@@ -79,13 +79,14 @@ footer {
     height: 200px;
     margin-top: 100%;
     text-align: center;
+    padding-top: 15px;
 }
 
 footer li {
     width: 100%;
     list-style: none;
     justify-content: center;
-    display: inline;
+    display: block;
     margin: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
