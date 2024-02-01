@@ -46,6 +46,10 @@ body, h1, p, ul {
     text-align: center;
 }
 
+.navbar-item {
+    color: white;
+}
+
 header ul {
     width: 100%;
     list-style: none;
@@ -59,6 +63,10 @@ header ul {
 .navbar li a:hover {
     background-color: white;
     color: rgb(64, 64, 203);    
+}
+
+nav ul li {
+    color: red;
 }
 
 /* Body Customization */
@@ -76,6 +84,15 @@ form {
 #banner h2 {
     color: black;
 }
+
+.columns {
+    overflow: visible;
+}
+
+.p-6 {
+    margin: 25px;
+}
+
 /* Footer Customization */
 
 footer {

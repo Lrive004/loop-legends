@@ -2,6 +2,9 @@
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
 var petFinderDataUrl = "https://api.petfinder.com/v2/animals?type=dog&page=2"
+
+// "https://api.petfinder.com/v2/animals?type=dog&location=18901&distance=100&sort=distance"
+
 /** Globals */
 var clientId = "jLQRCXjJDVmTMYkA9INhzNZx5w15S665A3JhSgdMeUJbudzvtK";
 var clientSecret = "75Ca7w6t8awxnNFn025XENDa6dze3Ea7cH5xrz0V";
