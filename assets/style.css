@@ -7,16 +7,20 @@ header h1 {
     padding-top: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 36px;
+    font-weight: bolder;
 }
 
 body {
-    background-color:white;
+    background-color: white;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-body, h1, p, ul {
+body,
+h1,
+p,
+ul {
     margin: 0;
     padding: 0;
 }
@@ -28,16 +32,15 @@ body, h1, p, ul {
 }
 
 
-#banner-p { 
+#banner-p {
     text-align: center;
-    border-top: 4px solid rgb(64, 64, 203); 
-    border-bottom: 4px solid rgb(64, 64, 203); 
-    box-decoration-break: clone; 
+    border-top: 4px solid rgb(64, 64, 203);
+    border-bottom: 4px solid rgb(64, 64, 203);
+    box-decoration-break: clone;
     width: 60%;
     margin-left: 22%;
     font-size: large;
-
-  } 
+}
 
 /* Nav Bar Customization */
 
@@ -57,12 +60,11 @@ header ul {
     display: inline;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-    padding: 14px 16px;
 }
 
 .navbar li a:hover {
     background-color: white;
-    color: rgb(64, 64, 203);    
+    color: rgb(64, 64, 203);
 }
 
 nav ul li {
@@ -78,11 +80,11 @@ h2 {
 
 form {
     margin-top: 20px;
-    
+
 }
 
 #banner h2 {
-    color: black;
+    font-weight: bold;
 }
 
 .columns {
@@ -91,6 +93,32 @@ form {
 
 .p-6 {
     margin: 25px;
+    display: inline-block;
+}
+
+legend {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 32px;
+}
+
+label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+    width: 40%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#submitZip {
+    border-radius: 12.5px;
+    height: 25px;
+    width: 75px;
+    color: white;
+    background-color: rgb(64, 64, 203);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* Footer Customization */
@@ -116,4 +144,65 @@ footer li a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+
+/* setting the text and header to change when resized */
+
+@media screen and (max-width: 1024px) {
+    header {
+        background-color: rgb(64, 64, 203);
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    #banner-p {
+        margin-left: 12.5%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #banner-p {
+        margin-right: 12.5%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #banner-p {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 764px) {
+    #banner-p {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 764px) {
+    #banner-p {
+        margin-left: 7.5%;
+    }
+}
+
+@media screen and (max-width: 764px) {
+    #banner-p {
+        margin-right: 7.5%;
+    }
+}
+
+/* hiding the navbar on smal screens to save screen space */
+
+
+@media screen and (max-width: 1024px) {
+    .navbar-item {
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    header ul{
+        justify-content: center;
+    }
 }
