@@ -1,14 +1,11 @@
 var imageContainer = document.getElementById("img-container");
-var zipButton = document.getElementById("submitZip");
+var zipButton = document.getElementById("submit-zip");
 var inputBox = document.getElementById("zip");
 var adoptNowButtonEl = document.querySelector('#adopt-now');
 var aboutUsButtonEl = document.querySelector('#about-us');
-var contactUsButtonEl = document.querySelector('#contact-us                                              
+var contactUsButtonEl = document.querySelector('#contact-us');                                             
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
-var petFinderDataUrl = "https://api.petfinder.com/v2/animals?type=dog&page=2"
-
-// "https://api.petfinder.com/v2/animals?type=dog&location=18901&distance=100&sort=distance"
 
 /** Globals */
 var clientId = "jLQRCXjJDVmTMYkA9INhzNZx5w15S665A3JhSgdMeUJbudzvtK";
@@ -39,38 +36,52 @@ function getPetFinderToken() {
     })
 }
 
-/** This function is mostly a placeholder. You will need to update
- * this to fit your actual requirements. It is here just for demo
- * purposes.
- */
-function getPetFinderData() {
-  getPetFinderToken()
-  .then((function (token) {
-    fetch(proxyUrl + petFinderDataUrl, {
-      method: "GET",
-      headers: {
-        "Authorization": "Bearer " + token,
-      }
-    })
-      .then(function (response) {
-        return response.json()
+function getPetFinderData(zipCode) {
+    getPetFinderToken()
+    .then((function (token) {
+        var apiURL = `https://api.petfinder.com/v2/animals?type=dog&location=${zipCode}&distance=100&sort=distance`;
+      fetch(proxyUrl +apiURL, {
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer " + token,
+        }
       })
-      .then(function (data) {
-        /** This is the actual data being returned from the Pet Finder API.
-         * This particular endpoint stores the data in a property called 
-         * animals. Other endpoints may be different.
-         */
-        console.log(data.animals);
-      })
-  }))
-}
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (data) {
+          /** This is the actual data being returned from the Pet Finder API.
+           * This particular endpoint stores the data in a property called 
+           * animals. Other endpoints may be different.
+           */
+          var animals = data.animals;
+          displayImages(animals);
+        })
+    }))
+  }
+  
+  function displayImages(animals) {
+    var imageContainer = document.getElementById("img-container");
+  
+    // Clear existing images
+    imageContainer.innerHTML = '';
+  
+    animals.forEach(function(animal) {
+      // Create img element
+      var img = document.createElement('img');
+      img.src = animal.photos[0].small;
+  
+      // Append img to imageContainer
+      imageContainer.appendChild(img);
+    });
+  }
+  
 
-var displayImg = function (event) {
+  
+  var submitZip = function (event) {
     event.preventDefault();
     getPetFinderData(inputBox.value);
+  }
+  
 
-
-}
-
-
-zipButton.addEventListener('click', displayImg);
+zipButton.addEventListener('click', submitZip);

@@ -89,14 +89,6 @@ form {
     font-weight: bold;
 }
 
-.columns {
-    overflow: visible;
-}
-
-.p-6 {
-    margin: 25px;
-    display: inline-block;
-}
 
 legend {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
