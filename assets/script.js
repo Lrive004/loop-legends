@@ -64,21 +64,32 @@ function getPetFinderData() {
   }))
 }
 
-var switchAboutUs = function (event) {
-  var aboutUsButtonEl = event.target.setAttribute(document.location.replace('./about-us.html'));
-}
-var switchContactUs = function (event) {
-  var contactUsButtonEl = event.target.setAttribute(document.location.replace('./contact-us.html'));
-}
-var switchAdoptNow = function (event) {
-  var adoptNowButtonEl = event.target.setAttribute(document.location.replace('./index.html'));
-}
 
-aboutUsButtonEl.addEventListener('click', switchAboutUs);
-adoptNowEl.addEventListener('click', switchAdoptNow);
-contactUsButtonEl.addEventListener('click', switchContactUs);
+// var getDogFact = function (event) {
+//   var requestUrl = '/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/?number=1';
 
+//   return fetch (requestUrl, {mode: 'no-cors'})
+//   .then(function (response) {
+//     return console.log(response);
+//   })
+// }
+//   // .then(function (data) {
+//   //     var dogFact = document.createElement('p');
+//   //     dogFact.textContent = data.response;
+//   //   })
+//   // }
+
+
+// dogFactButtonEl.addEventListener('click', getDogFact);
 
 
 getPetFinderData();
 
+// console.log("start");
+
+// const fetchBreeds = () {
+//   fetch('')
+// }
+
+
+// fetchBreeds()
