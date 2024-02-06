@@ -65,11 +65,17 @@
                 adoption. </p>
         </div>
     </div>
+
+    <form class="has-text-centered">
+        <legend> Find A Dog Near You! </legend>
+        <label for="zip">Zip:</label>
+        <input type="text" name="zip" id="zip">
+        <button id="submitZip">submit</button>
+    </form>
     <br>
-    <div class="Flexbox-Component-Class">
-        <h1 class="title has-text-centered">
+        <h2 class="title has-text-centered">
             Furry friends looking for homes
-        </h1>
+        <!-- </h2>
         <div class="columns is-flex-wrap-wrap is-justify-content-space-between">
             <div class="p-6 bd-highlight  
                 has-background-primary"> 1 </div>
@@ -82,7 +88,9 @@
             <div class="p-6 bd-highlight  
                 has-background-primary"> 5 </div>
                 <div class="p-6 bd-highlight  
-                has-background-primary"> 6 </div>
+                has-background-primary"> 6 </div> -->
+            <!-- Fetched images displayed here -->
+            <div id="img-container"></div>
         </div>
     </div>
     </div>
@@ -104,5 +112,4 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
-
 </html>

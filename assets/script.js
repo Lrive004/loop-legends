@@ -1,8 +1,9 @@
+var imageContainer = document.getElementById("img-container");
+var zipButton = document.getElementById("submitZip");
+var inputBox = document.getElementById("zip");
 var adoptNowButtonEl = document.querySelector('#adopt-now');
 var aboutUsButtonEl = document.querySelector('#about-us');
-var contactUsButtonEl = document.querySelector('#contact-us');
-
-/** URLs */
+var contactUsButtonEl = document.querySelector('#contact-us                                              
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
 var petFinderDataUrl = "https://api.petfinder.com/v2/animals?type=dog&page=2"
@@ -64,21 +65,12 @@ function getPetFinderData() {
   }))
 }
 
-var switchAboutUs = function (event) {
-  var aboutUsButtonEl = event.target.setAttribute(document.location.replace('./about-us.html'));
-}
-var switchContactUs = function (event) {
-  var contactUsButtonEl = event.target.setAttribute(document.location.replace('./contact-us.html'));
-}
-var switchAdoptNow = function (event) {
-  var adoptNowButtonEl = event.target.setAttribute(document.location.replace('./index.html'));
+var displayImg = function (event) {
+    event.preventDefault();
+    getPetFinderData(inputBox.value);
+
+
 }
 
-aboutUsButtonEl.addEventListener('click', switchAboutUs);
-adoptNowEl.addEventListener('click', switchAdoptNow);
-contactUsButtonEl.addEventListener('click', switchContactUs);
 
-
-
-getPetFinderData();
-
+zipButton.addEventListener('click', displayImg);
