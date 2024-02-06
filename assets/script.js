@@ -1,8 +1,9 @@
+var imageContainer = document.getElementById("img-container");
+var zipButton = document.getElementById("submitZip");
+var inputBox = document.getElementById("zip");
 var adoptNowButtonEl = document.querySelector('#adopt-now');
 var aboutUsButtonEl = document.querySelector('#about-us');
-var contactUsButtonEl = document.querySelector('#contact-us');
-
-/** URLs */
+var contactUsButtonEl = document.querySelector('#contact-us                                              
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
 var petFinderDataUrl = "https://api.petfinder.com/v2/animals?type=dog&page=2"
@@ -64,32 +65,12 @@ function getPetFinderData() {
   }))
 }
 
-
-// var getDogFact = function (event) {
-//   var requestUrl = '/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs/?number=1';
-
-//   return fetch (requestUrl, {mode: 'no-cors'})
-//   .then(function (response) {
-//     return console.log(response);
-//   })
-// }
-//   // .then(function (data) {
-//   //     var dogFact = document.createElement('p');
-//   //     dogFact.textContent = data.response;
-//   //   })
-//   // }
+var displayImg = function (event) {
+    event.preventDefault();
+    getPetFinderData(inputBox.value);
 
 
-// dogFactButtonEl.addEventListener('click', getDogFact);
+}
 
 
-getPetFinderData();
-
-// console.log("start");
-
-// const fetchBreeds = () {
-//   fetch('')
-// }
-
-
-// fetchBreeds()
+zipButton.addEventListener('click', displayImg);
