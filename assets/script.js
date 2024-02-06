@@ -60,19 +60,36 @@ function getPetFinderData(zipCode) {
     }))
   }
   
-  function displayImages(animals) {
+
+function displayImages(animals) {
     var imageContainer = document.getElementById("img-container");
   
     // Clear existing images
     imageContainer.innerHTML = '';
   
     animals.forEach(function(animal) {
-      // Create img element
-      var img = document.createElement('img');
-      img.src = animal.photos[0].small;
+      if (animal.photos && animal.photos.length > 0) {
+        // Create container for image and info
+        var div = document.createElement('div');
   
-      // Append img to imageContainer
-      imageContainer.appendChild(img);
+        // Populate dog images
+        var img = document.createElement('img');
+        img.src = animal.photos[0].small;
+        div.appendChild(img);
+  
+        // Populate dog name
+        var namePara = document.createElement('p');
+        namePara.textContent = 'Name: ' + animal.name;
+        div.appendChild(namePara);
+  
+        // Populate dog age
+        var agePara = document.createElement('p');
+        agePara.textContent = 'Age: ' + animal.age;
+        div.appendChild(agePara);
+  
+        // Append container to imageContainer
+        imageContainer.appendChild(div);
+      }
     });
   }
   
