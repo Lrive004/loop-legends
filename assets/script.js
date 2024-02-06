@@ -1,8 +1,9 @@
 var imageContainer = document.getElementById("img-container");
 var zipButton = document.getElementById("submitZip");
 var inputBox = document.getElementById("zip");
-
-/** URLs */
+var adoptNowButtonEl = document.querySelector('#adopt-now');
+var aboutUsButtonEl = document.querySelector('#about-us');
+var contactUsButtonEl = document.querySelector('#contact-us                                              
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
 var petFinderDataUrl = "https://api.petfinder.com/v2/animals?type=dog&page=2"
@@ -63,11 +64,6 @@ function getPetFinderData() {
       })
   }))
 }
-
-
-
-
-
 
 var displayImg = function (event) {
     event.preventDefault();
