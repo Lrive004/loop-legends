@@ -1,3 +1,7 @@
+var imageContainer = document.getElementById("img-container");
+var zipButton = document.getElementById("submitZip");
+var inputBox = document.getElementById("zip");
+
 /** URLs */
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
@@ -61,5 +65,16 @@ function getPetFinderData() {
 }
 
 
-getPetFinderData();
 
+
+
+
+var displayImg = function (event) {
+    event.preventDefault();
+    getPetFinderData(inputBox.value);
+
+
+}
+
+
+zipButton.addEventListener('click', displayImg);

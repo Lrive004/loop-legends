@@ -195,11 +195,18 @@ footer li a {
 /* hiding the navbar on smal screens to save screen space */
 
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 376px) {
     .navbar-item {
         display: inline;
     }
 }
+/* @media screen and (max-width: 1021px) {
+    .navbar {
+        display: inline;
+    }
+} */
+
+
 
 @media screen and (max-width: 1024px) {
     header ul{
