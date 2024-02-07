@@ -1,4 +1,5 @@
 var imageContainer = document.getElementById("img-container");
+var favContainer = document.getElementById("fav-container");
 var zipButton = document.getElementById("submit-zip");
 var inputBox = document.getElementById("zip");
 var adoptNowButtonEl = document.querySelector('#adopt-now');
@@ -146,6 +147,59 @@ function displayImages(animals) {
       button.textContent = 'Unfavorite';
     }
   }
+
+function appendFavorites() {
+  var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  favorites.forEach(function(animalId) {
+    var div = document.createElement('div');
+    div.classList.add('favorite-animal');
+    
+    getPetFinderToken()
+    .then(function(token) {
+      var apiURL = `https://api.petfinder.com/v2/animals/${animalId}`;
+      return fetch(proxyUrl + apiURL, {
+        method: "GET",
+        headers: {
+          "Authorization": "Bearer " + token,
+        }
+      });
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      if (data && data.animal) {
+        var animal = data.animal;
+      
+        var img = document.createElement('img');
+        img.src = animal.photos[0].medium;
+        div.appendChild(img);
+        
+        var namePara = document.createElement('p');
+        namePara.textContent = 'Name: ' + animal.name;
+        div.appendChild(namePara);
+        
+        var agePara = document.createElement('p');
+        agePara.textContent = 'Age: ' + animal.age;
+        div.appendChild(agePara);
+        
+        // Append the favorite animal container to the favContainer
+        favContainer.appendChild(div);
+        img.addEventListener('click', function() {
+          if (animal.url) {
+            window.open(animal.url, '_blank');
+          }
+         });
+      }
+    })
+    .catch(function(error) {
+      console.error('Error fetching favorite animal:', error);
+    });
+  });
+}
+
+// Call displayFavorites initially to populate favContainer
+appendFavorites();
   
   (displayFavorites)
 
@@ -154,22 +208,23 @@ function displayImages(animals) {
     var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     var favoritesList = document.getElementById('favoritesList');
     
- 
-
     // Display favorites on the page
     favorites.forEach(function(animalId) {
         var listItem = document.createElement('li');
         listItem.textContent = animalId;
         favoritesList.appendChild(listItem);
     });
+
+    favorites.forEach(function(animalId) {
+      var listItem = document.createElement('li');
+      listItem.textContent = animalId;
+      favoritesList.appendChild(listItem);
+  });
 }
 
-
-  
   var submitZip = function (event) {
     event.preventDefault();
     getPetFinderData(inputBox.value);
   }
   
-
 zipButton.addEventListener('click', submitZip);
