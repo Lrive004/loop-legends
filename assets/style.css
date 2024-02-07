@@ -366,10 +366,7 @@ h3 {
     }
 }
 
-
-
 /* Contact Us page customization */
-
 
 .contact-us h2 {
     margin-top: 15px;
@@ -398,9 +395,39 @@ h3 {
 }
 
 
-#fact-h2 {
+/* breed info customization */
+
+#fact-h3 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 30px;
-    font-weight: bolder;
-    margin: 20px;
 }
+
+#dog-img {
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-content: center;
+}
+
+#dog-description {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+}
+
+#dog-description dt {
+    font-weight: bolder;
+    padding-left: 35px;
+}
+
+#dog-description dd {
+    padding-left: 35px;
+}
+
+#fact-option {
+    text-align: center;
+    padding-left: 35px;
+
+}
+

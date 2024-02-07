@@ -146,6 +146,24 @@ function displayImages(animals) {
       button.textContent = 'Unfavorite';
     }
   }
+  
+  (displayFavorites)
+
+  // Function to display favorite items
+  function displayFavorites(animals) {
+    var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    var favoritesList = document.getElementById('favoritesList');
+    
+ 
+
+    // Display favorites on the page
+    favorites.forEach(function(animalId) {
+        var listItem = document.createElement('li');
+        listItem.textContent = animalId;
+        favoritesList.appendChild(listItem);
+    });
+}
+
 
   
   var submitZip = function (event) {
