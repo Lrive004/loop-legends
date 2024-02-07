@@ -127,6 +127,43 @@ img:hover {
     cursor: pointer;
 }
 
+
+/* Styling to the dog images */
+
+.animal-container {
+    margin: 10px; 
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+  }
+
+  .animal-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .animal-container p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    margin: 5px 0;
+  }
+
+  /* Favorites button styling */
+
+  .animal-container .favorite-button {
+    background-color: rgb(64, 64, 203);
+    color: #fff; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer;
+    border-radius: 3px; 
+  }
+
+  .animal-container .favorite-button:hover {
+    background-color: #0056b3;
+  }
+
 .dog-fact {
     text-align: center;
     padding: 20px;
