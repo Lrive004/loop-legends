@@ -69,10 +69,6 @@ header ul {
     color: rgb(64, 64, 203);
 }
 
-nav ul li {
-    color: red;
-}
-
 /* Body Customization */
 
 h2 {
@@ -104,7 +100,7 @@ input {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#submitZip {
+#submit-zip {
     border-radius: 12.5px;
     height: 25px;
     width: 75px;
@@ -113,6 +109,22 @@ input {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
+}
+
+#img-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; 
+}
+
+ #img-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+img:hover {
+    cursor: pointer;
 }
 
 .dog-fact {
