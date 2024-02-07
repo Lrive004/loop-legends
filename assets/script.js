@@ -2,11 +2,7 @@ var imageContainer = document.getElementById("img-container");
 var favContainer = document.getElementById("fav-container");
 var zipButton = document.getElementById("submit-zip");
 var inputBox = document.getElementById("zip");
-var adoptNowButtonEl = document.querySelector('#adopt-now');
-var aboutUsButtonEl = document.querySelector('#about-us');
-var contactUsButtonEl = document.querySelector('#contact-us');
 
-var favorites = [];
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
 
@@ -130,8 +126,13 @@ function displayImages(animals) {
       }
     });
   }
-  
+
+
+  // toggles the favorite status of a dog when its favorite button is clicked
+
   function toggleFavorite(animalId, button) {
+
+    // Grabs the list of favorite dogs from local storage
     var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   
     var index = favorites.indexOf(animalId);
@@ -147,6 +148,14 @@ function displayImages(animals) {
       button.textContent = 'Unfavorite';
     }
   }
+
+
+
+
+
+
+
+  // Populates favorite dogs on favorites page
 
 function appendFavorites() {
   var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -182,6 +191,26 @@ function appendFavorites() {
         var agePara = document.createElement('p');
         agePara.textContent = 'Age: ' + animal.age;
         div.appendChild(agePara);
+
+        // Favorite button added to favortes webpage as well
+        var favoriteButton = document.createElement('button');
+      favoriteButton.textContent = 'Favorite';
+      favoriteButton.classList.add('favorite-button');
+      favoriteButton.dataset.animalId = animal.id;
+
+
+        // Toggles text if favorited or not
+      if (favorites.includes(animal.id)) {
+        favoriteButton.textContent = 'Unfavorite';
+      } else {
+        favoriteButton.textContent = 'Favorite';
+      }
+
+      div.appendChild(favoriteButton);
+
+      favoriteButton.addEventListener('click', function() {
+        toggleFavorite(animal.id, favoriteButton);
+      });
         
         // Append the favorite animal container to the favContainer
         favContainer.appendChild(div);

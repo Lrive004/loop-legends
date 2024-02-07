@@ -151,6 +151,25 @@ img:hover {
     margin: 5px 0;
   }
 
+  .fav-animal {
+    margin: 10px; 
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+  }
+
+  .fav-animal img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .fav-animal p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    margin: 5px 0;
+  }
+
   /* Favorites button styling */
 
   .animal-container .favorite-button {
