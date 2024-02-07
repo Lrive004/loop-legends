@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loop Legends Pet Sanctuary</title>
     <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 </head>
+
 <body>
     <header>
         <nav>
@@ -20,9 +22,15 @@
         </nav>
     </header>
     <div id="fact-h2">
-        <h2>Choosing the right breed can be hard...</h2>
+        <h2>Choosing the right breed for you can be hard...</h2>
         <h2>Let's find out which one is right for you!</h2>
-
+    </div>
+    <div class="breed-info-container">
+        <select id="breed-select" onchange="changeBreed(this)">
+            <option>Select breed</option>
+        </select>
+        <image id="dog-img" src="" alt="dog"></image>
+        <dl id="dog-description"></dl>
     </div>
     <footer>
         <ul>
@@ -33,7 +41,8 @@
         </ul>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="./assets/script.js"></script>
+    <script src="./assets/breed-info.js"></script>
 </body>
 </body>
+
 </html>
