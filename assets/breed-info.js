@@ -36,36 +36,36 @@ const createDescriptionEntry = ({label, value}) => {
 
 const fillBreedDescription = ({bred_for: bredFor, bred_group: bredGroup, name, temperament, life_span: lifeSpan, origin, height, weight}) => {
     createDescriptionEntry ({
-        label: "name",
+        label: 'Name:',
         value: name
     });
     createDescriptionEntry ({
-        label: 'Bred For',
+        label: 'Bred For:',
         value: bredFor
     });
     createDescriptionEntry ({
-        label: 'Bred Group',
+        label: 'Bred Group:',
         value: bredGroup
     });
     createDescriptionEntry ({
-        label: 'Temperament',
+        label: 'Temperament:',
         value: temperament
     });
     createDescriptionEntry ({
-        label: "Life Span",
+        label: 'Life Span:',
         value: lifeSpan
     });
     createDescriptionEntry ({
-        label: "Origin",
+        label: 'Origin:',
         value: origin
     })
     createDescriptionEntry ({
-        label: "Height [in]",
-        value: height.imperial
+        label: 'Height [cm]:',
+        value: height
     })
     createDescriptionEntry ({
-        label: "Weight [lb]",
-        value: weight.imperial
+        label: 'Weight [kg]:',
+        value: weight
     })
 }
 
@@ -76,7 +76,7 @@ const getDogByBreed = async (breedId) => {
     const { url: imageUrl, breeds } = data;
     console.log(data)
     fillBreedImage(imageUrl);
-    fillBreedDescription(breeds[0]);
+    fillBreedDescription(data);
 }
 
 const changeBreed = () => {
