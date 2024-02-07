@@ -3,7 +3,8 @@ var zipButton = document.getElementById("submit-zip");
 var inputBox = document.getElementById("zip");
 var adoptNowButtonEl = document.querySelector('#adopt-now');
 var aboutUsButtonEl = document.querySelector('#about-us');
-var contactUsButtonEl = document.querySelector('#contact-us');                                             
+var contactUsButtonEl = document.querySelector('#contact-us');
+
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
 
@@ -54,7 +55,9 @@ function getPetFinderData(zipCode) {
            * This particular endpoint stores the data in a property called 
            * animals. Other endpoints may be different.
            */
+         
           var animals = data.animals;
+          console.log(animals);
           displayImages(animals);
         })
     }))
@@ -71,11 +74,20 @@ function displayImages(animals) {
       if (animal.photos && animal.photos.length > 0) {
         // Create container for image and info
         var div = document.createElement('div');
+        div.classList.add('animal-container');
   
         // Populate dog images
         var img = document.createElement('img');
         img.src = animal.photos[0].small;
-        div.appendChild(img);
+
+        // Allows user to redirect to petfinder after clicking a picture
+        img.addEventListener('click', function() {
+           if (animal.url) {
+             window.open(animal.url, '_blank');
+           }
+          });
+    
+          div.appendChild(img);
   
         // Populate dog name
         var namePara = document.createElement('p');
