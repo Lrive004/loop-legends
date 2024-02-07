@@ -70,14 +70,15 @@ const fillBreedDescription = ({bred_for: bredFor, bred_group: bredGroup, name, t
 }
 
 
-const getDogByBreed = async (breedId) => {
-    
-    const [data] = await fetch('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breedId).then((data) => data.json());
-    const { url: imageUrl, breeds } = data;
-    console.log(data)
-    fillBreedImage(imageUrl);
-    fillBreedDescription(data);
-}
+// const getDogByBreed = async (breedId) => {
+
+//     const [data] = await fetch('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breedId).then((data) => data.json());
+//     const { url: imageUrl, breeds } = data;
+//     console.log(data)
+//     fillBreedImage(imageUrl);
+//     fillBreedDescription(breeds[0]);
+// }
+
 
 const changeBreed = () => {
     getDogByBreed(event.target.value)

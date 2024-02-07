@@ -5,6 +5,7 @@ var adoptNowButtonEl = document.querySelector('#adopt-now');
 var aboutUsButtonEl = document.querySelector('#about-us');
 var contactUsButtonEl = document.querySelector('#contact-us');
 
+var favorites = [];
 var proxyUrl = "https://young-island-22825-8f69f8bdd4e2.herokuapp.com/";
 var petFinderTokenUrl = "https://api.petfinder.com/v2/oauth2/token";
 
@@ -69,18 +70,23 @@ function displayImages(animals) {
   
     // Clear existing images
     imageContainer.innerHTML = '';
+
+    var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   
     animals.forEach(function(animal) {
       if (animal.photos && animal.photos.length > 0) {
+
         // Create container for image and info
         var div = document.createElement('div');
+
+        // Div used for styling dog images
         div.classList.add('animal-container');
   
         // Populate dog images
         var img = document.createElement('img');
         img.src = animal.photos[0].small;
 
-        // Allows user to redirect to petfinder after clicking a picture
+        // Allows user to redirect to a petfinder bio of that doggit after clicking a picture
         img.addEventListener('click', function() {
            if (animal.url) {
              window.open(animal.url, '_blank');
@@ -98,6 +104,25 @@ function displayImages(animals) {
         var agePara = document.createElement('p');
         agePara.textContent = 'Age: ' + animal.age;
         div.appendChild(agePara);
+        
+        // Added favorites button/local storage 
+        var favoriteButton = document.createElement('button');
+      favoriteButton.textContent = 'Favorite';
+      favoriteButton.classList.add('favorite-button');
+      favoriteButton.dataset.animalId = animal.id;
+
+      if (favorites.includes(animal.id)) {
+        favoriteButton.textContent = 'Unfavorite';
+      } else {
+        favoriteButton.textContent = 'Favorite';
+      }
+
+      div.appendChild(favoriteButton);
+
+      // Add click event listener to the favorite button
+      favoriteButton.addEventListener('click', function() {
+        toggleFavorite(animal.id, favoriteButton);
+      });
   
         // Append container to imageContainer
         imageContainer.appendChild(div);
@@ -105,6 +130,22 @@ function displayImages(animals) {
     });
   }
   
+  function toggleFavorite(animalId, button) {
+    var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  
+    var index = favorites.indexOf(animalId);
+    if (index !== -1) {
+      // Animal is already favorited, so remove it from favorites
+      favorites.splice(index, 1);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      button.textContent = 'Favorite';
+    } else {
+      // Animal is not favorited, so add it to favorites
+      favorites.push(animalId);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      button.textContent = 'Unfavorite';
+    }
+  }
 
   
   var submitZip = function (event) {
