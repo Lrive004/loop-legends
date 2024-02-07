@@ -342,12 +342,14 @@ h3 {
     width: 250px;
     float: right;
     margin: 10px;
+    border-radius: 15px;
 }
 #bio-img-2 {
     height: 250px;
     width: 250px;
     float: left;
     margin: 10px;
+    border-radius: 50px;
 }
 
 
