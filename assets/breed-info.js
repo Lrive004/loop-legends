@@ -1,5 +1,7 @@
 console.log('start')
 
+let dogBreeds;
+
 const fetchBreeds = async () => {
     const response = await fetch('https://api.thedogapi.com/v1/breeds');
     const dogBreeds = await response.json();
@@ -16,7 +18,7 @@ const populateBreeds = (breeds) => {
         return option;
     })
     breedOptions.forEach(option => {
-    select.appendChild(option);   
+        select.appendChild(option);
     })
 }
 
@@ -24,64 +26,78 @@ const fillBreedImage = (imageUrl) => {
     document.querySelector('#dog-img').setAttribute('src', imageUrl);
 }
 
-const createDescriptionEntry = ({label, value}) => {
+const clearDescription = () => {
+    const parentElement = document.querySelector('#dog-description');
+    parentElement.textContent = " ";
+};
+
+const createDescriptionEntry = ({ label, value }) => {
     const descriptionTerm = document.createElement('dt');
     descriptionTerm.textContent = label;
     const descriptionValue = document.createElement('dd');
-    descriptionValue.textContent = value
+    descriptionValue.textContent = value;
     const parentElement = document.querySelector('#dog-description');
-    parentElement.appendChild(descriptionTerm);
-    parentElement.appendChild(descriptionValue);
-}
+        parentElement.appendChild(descriptionTerm);
+        parentElement.appendChild(descriptionValue);
+};
 
-const fillBreedDescription = ({bred_for: bredFor, bred_group: bredGroup, name, temperament, life_span: lifeSpan, origin, height, weight}) => {
-    createDescriptionEntry ({
+const fillBreedDescription = ({ bred_for: bredFor, bred_group: bredGroup, name, temperament, life_span: lifeSpan, origin, height, weight }) => {
+    createDescriptionEntry({
         label: 'Name:',
         value: name
     });
-    createDescriptionEntry ({
+    createDescriptionEntry({
         label: 'Bred For:',
         value: bredFor
     });
-    createDescriptionEntry ({
+    createDescriptionEntry({
         label: 'Bred Group:',
         value: bredGroup
     });
-    createDescriptionEntry ({
+    createDescriptionEntry({
         label: 'Temperament:',
         value: temperament
     });
-    createDescriptionEntry ({
+    createDescriptionEntry({
         label: 'Life Span:',
         value: lifeSpan
     });
-    createDescriptionEntry ({
+    createDescriptionEntry({
         label: 'Origin:',
         value: origin
     })
-    createDescriptionEntry ({
-        label: 'Height [cm]:',
-        value: height
+    createDescriptionEntry({
+        label: 'Height [in]:',
+        value: height.imperial
     })
-    createDescriptionEntry ({
-        label: 'Weight [kg]:',
-        value: weight
+    createDescriptionEntry({
+        label: 'Weight [lb]:',
+        value: weight.imperial
     })
 }
 
 
-// const getDogByBreed = async (breedId) => {
+const getDogByBreed = async (breedId) => {
+    clearDescription()
+    const [data] = await fetch('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breedId).then((data) => data.json());
+    const { url: imageUrl, } = data;
+    console.log(data)
+    fillBreedImage(imageUrl);
+}
 
-//     const [data] = await fetch('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breedId).then((data) => data.json());
-//     const { url: imageUrl, breeds } = data;
-//     console.log(data)
-//     fillBreedImage(imageUrl);
-//     fillBreedDescription(breeds[0]);
-// }
-
+const getBreedDescription = async (breedId) => {
+    console.log(breedId);
+    const response = await fetch('https://api.thedogapi.com/v1/breeds/' + breedId);
+    const data = await response.json();
+    console.log(data);
+    fillBreedDescription(data);
+}
 
 const changeBreed = () => {
-    getDogByBreed(event.target.value)
+
+    getBreedDescription(event.target.value);
+    getDogByBreed(event.target.value);
 }
 
 fetchBreeds();
+
