@@ -31,6 +31,10 @@ const clearDescription = () => {
     parentElement.textContent = " ";
 };
 
+const clearImage = () => {
+    document.querySelector('#dog-img').setAttribute('src', "")
+};
+
 const createDescriptionEntry = ({ label, value }) => {
     const descriptionTerm = document.createElement('dt');
     descriptionTerm.textContent = label;
@@ -41,7 +45,7 @@ const createDescriptionEntry = ({ label, value }) => {
         parentElement.appendChild(descriptionValue);
 };
 
-const fillBreedDescription = ({ bred_for: bredFor, bred_group: bredGroup, name, temperament, life_span: lifeSpan, origin, height, weight }) => {
+const fillBreedDescription = ({ bred_for: bredFor, name, temperament, life_span: lifeSpan, height, weight }) => {
     createDescriptionEntry({
         label: 'Name:',
         value: name
@@ -51,10 +55,6 @@ const fillBreedDescription = ({ bred_for: bredFor, bred_group: bredGroup, name, 
         value: bredFor
     });
     createDescriptionEntry({
-        label: 'Bred Group:',
-        value: bredGroup
-    });
-    createDescriptionEntry({
         label: 'Temperament:',
         value: temperament
     });
@@ -62,10 +62,7 @@ const fillBreedDescription = ({ bred_for: bredFor, bred_group: bredGroup, name, 
         label: 'Life Span:',
         value: lifeSpan
     });
-    createDescriptionEntry({
-        label: 'Origin:',
-        value: origin
-    })
+
     createDescriptionEntry({
         label: 'Height [in]:',
         value: height.imperial
@@ -78,7 +75,7 @@ const fillBreedDescription = ({ bred_for: bredFor, bred_group: bredGroup, name, 
 
 
 const getDogByBreed = async (breedId) => {
-    clearDescription()
+    clearImage()
     const [data] = await fetch('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breedId).then((data) => data.json());
     const { url: imageUrl, } = data;
     console.log(data)
@@ -86,6 +83,7 @@ const getDogByBreed = async (breedId) => {
 }
 
 const getBreedDescription = async (breedId) => {
+    clearDescription()
     console.log(breedId);
     const response = await fetch('https://api.thedogapi.com/v1/breeds/' + breedId);
     const data = await response.json();
@@ -100,4 +98,3 @@ const changeBreed = () => {
 }
 
 fetchBreeds();
-
